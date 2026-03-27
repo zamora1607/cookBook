@@ -11,22 +11,29 @@ import SwiftData
 @Model
 final class Recipe {
     var name: String
+    @Relationship(deleteRule: .cascade)
     var ingredients: [Ingredient]
-    var instructions: String
+    var instructionSteps: [String]
     var keywords: [String] = []
     var additionalInfo: String?
+    var isFavorite: Bool?
+    var photoData: Data?
     
     init(
         name: String,
         ingredients: [Ingredient],
-        instructions: String,
+        instructionSteps: [String],
         keywords: [String]? = nil,
-        additionalInfo: String? = nil
+        additionalInfo: String? = nil,
+        isFavorite: Bool = false,
+        photoData: Data? = nil
     ) {
         self.name = name
         self.ingredients = ingredients
-        self.instructions = instructions
+        self.instructionSteps = instructionSteps
         self.additionalInfo = additionalInfo
         self.keywords = keywords ?? []
+        self.isFavorite = isFavorite
+        self.photoData = photoData
     }
 }

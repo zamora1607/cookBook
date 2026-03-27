@@ -10,9 +10,12 @@ import SwiftData
 
 @main
 struct cookBookApp: App {
+    @StateObject private var localization = AppLocalization.shared
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Recipe.self,
+            Ingredient.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -26,6 +29,8 @@ struct cookBookApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(localization)
+                .environment(\.locale, Locale(identifier: localization.selectedLanguage.rawValue))
         }
         .modelContainer(sharedModelContainer)
     }
