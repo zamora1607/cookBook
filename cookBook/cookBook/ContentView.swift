@@ -82,18 +82,14 @@ struct ContentView: View {
                     systemImage: "book.closed",
                     description: Text(localization.noRecipesDescription)
                 )
-            } else if filteredRecipes.isEmpty {
+            } else if !searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && filteredRecipes.isEmpty {
                 ContentUnavailableView(
                     localization.noMatchesTitle,
                     systemImage: "magnifyingglass",
                     description: Text(localization.noMatchesDescription)
                 )
             } else {
-                ContentUnavailableView(
-                    localization.selectRecipeTitle,
-                    systemImage: "book.closed",
-                    description: Text(localization.selectRecipeDescription)
-                )
+                WelcomeView(searchText: $searchText, onSubmit: showFirstMatchingRecipe)
             }
         }
         .overlay(alignment: .bottomTrailing) {
@@ -271,14 +267,15 @@ struct ContentView: View {
     }
 
     private func ensureSelection() {
-        guard let selectedRecipe else {
-            self.selectedRecipe = filteredRecipes.first
-            return
-        }
+        guard let selectedRecipe else { return }
 
         if !filteredRecipes.contains(selectedRecipe) {
-            self.selectedRecipe = filteredRecipes.first
+            self.selectedRecipe = nil
         }
+    }
+
+    private func showFirstMatchingRecipe() {
+        selectedRecipe = filteredRecipes.first
     }
 
     private func createRecipe(from formData: RecipeFormData) {

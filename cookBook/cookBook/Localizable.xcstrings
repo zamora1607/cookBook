@@ -1226,6 +1226,54 @@
           }
         }
       }
+    },
+    "welcome.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for a recipe or choose one from the list on the left."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wyszukaj przepis albo wybierz go z listy po lewej stronie."
+          }
+        }
+      }
+    },
+    "welcome.subtitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What are you looking for?"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Czego szukasz?"
+          }
+        }
+      }
+    },
+    "welcome.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cześć"
+          }
+        }
+      }
     }
   },
   "version" : "1.1"

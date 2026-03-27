@@ -95,6 +95,9 @@ final class AppLocalization: ObservableObject {
     var noRecipesDescription: String { text("empty.no_recipes.description", default: "Use the plus button to create your first recipe.") }
     var noMatchesTitle: String { text("empty.no_matches.title", default: "No Matching Recipes") }
     var noMatchesDescription: String { text("empty.no_matches.description", default: "Try a different keyword.") }
+    var welcomeTitle: String { text("welcome.title", default: "Hello") }
+    var welcomeSubtitle: String { text("welcome.subtitle", default: "What are you looking for?") }
+    var welcomeDescription: String { text("welcome.description", default: "Search for a recipe or choose one from the list on the left.") }
     var selectRecipeTitle: String { text("empty.select_recipe.title", default: "Select a Recipe") }
     var selectRecipeDescription: String { text("empty.select_recipe.description", default: "Choose a recipe from the list to preview it here.") }
     var importRecipes: String { text("recipes.import", default: "Import Recipes") }
